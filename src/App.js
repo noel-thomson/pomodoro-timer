@@ -34,11 +34,13 @@ function App() {
     } else if (seconds === 0 && minutes === 0) {
       setIsRecess((c) => !c);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [seconds]);
 
   // set minutes of new setting
   useEffect(() => {
     isRecess ? setMinutes(recess) : setMinutes(pomodoro);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isRecess]);
 
   function reduceTime(title) {
