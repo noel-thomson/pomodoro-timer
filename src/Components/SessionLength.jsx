@@ -7,7 +7,7 @@ export default function SessionLength({
   clickUp,
 }) {
   return (
-    <div className="component-wrapper" id="session-length">
+    <section className="component-wrapper" id="session-length">
       <h3>{title}</h3>
       <p className="session-length-minutes">
         {sessionLength} <br />
@@ -21,6 +21,6 @@ export default function SessionLength({
           Up
         </button>
       </div>
-    </div>
+    </section>
   );
 }

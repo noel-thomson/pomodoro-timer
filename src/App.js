@@ -4,8 +4,8 @@ import Session from "./Components/Session";
 import "./App.scss";
 
 function App() {
-  const [pomodoro, setPomodoro] = useState(2);
-  const [recess, setRecess] = useState(1);
+  const [pomodoro, setPomodoro] = useState(2); // adjust
+  const [recess, setRecess] = useState(1); // adjust
   const [minutes, setMinutes] = useState(pomodoro);
   const [seconds, setSeconds] = useState(0);
   const [on, setOn] = useState(false);
@@ -17,7 +17,7 @@ function App() {
       const id = window.setInterval(() => {
         setSeconds((c) => {
           if (c === 0) {
-            return 3;
+            return 3; // adjust
           } else {
             return c - 1;
           }
@@ -27,9 +27,10 @@ function App() {
     }
   }, [on]);
 
-  // decrease minutes / change setting
+  // decrease minutes and switch setting (pomodoro/recess)
   useEffect(() => {
     if (seconds === 3 && minutes > 0) {
+      // adjust
       setMinutes((c) => c - 1);
     } else if (seconds === 0 && minutes === 0) {
       setIsRecess((c) => !c);
@@ -37,12 +38,13 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [seconds]);
 
-  // set minutes of new setting
+  // set minutes when switching to new setting
   useEffect(() => {
     isRecess ? setMinutes(recess) : setMinutes(pomodoro);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isRecess]);
 
+  // button functionality
   function reduceTime(title) {
     if (title === "Pomodoro") {
       setPomodoro((c) => c - 1);
@@ -62,10 +64,10 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="App-wrapper">
         <h1>Pomodoro Timer</h1>
         <Session session={minutes} countdown={seconds} />
-        <div className="component-wrapper">
+        <section className="component-wrapper" id="button-wrapper">
           {on ? (
             <button className="btn pause" onClick={() => setOn(false)}>
               Pause
@@ -85,8 +87,8 @@ function App() {
           >
             Reset
           </button>
-        </div>
-        <div className="row">
+        </section>
+        <section id="session-length-container">
           <SessionLength
             sessionLength={pomodoro}
             clickDown={reduceTime}
@@ -99,8 +101,8 @@ function App() {
             clickUp={increaseTime}
             title="Break"
           />
-        </div>
-      </header>
+        </section>
+      </div>
     </div>
   );
 }

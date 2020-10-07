@@ -1,16 +1,27 @@
-.App {
+body {
   text-align: center;
-  .App-header {
-    background-color: #282c34;
+  background-color: #282c34;
+}
+.App {
+  .App-wrapper {
     min-height: 100vh;
+    max-width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
-    .row {
+    #session-length-container {
       display: flex;
+    }
+    @media screen and (max-width: 600px) {
+      #session-length-container {
+        flex-direction: column;
+        #session-length {
+          margin: 10px;
+        }
+      }
     }
     .component-wrapper {
       padding: 20px;
@@ -37,26 +48,68 @@
 }
 
 #session {
-  margin-bottom: 20px;
-  padding: 5px;
-  height: 15rem;
-  width: 15rem;
-  border: 3px solid #fafafa;
-  border-radius: 50%;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50%;
+  #session-circle {
+    // padding: 5px;
+    height: 18rem;
+    width: 17.75rem;
+    border: 3px solid #fafafa;
+    border-radius: 50%;
+    animation: 1s linear infinite alternate shadow, 4s linear infinite spin;
+    // &.paused {
+    // animation: none;
+    // transition: 0.3s transform;
+    // }
+  }
+  @media screen and (max-width: 525px) {
+    #session-circle {
+      height: 15rem;
+      width: 14.75rem;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    #session-circle {
+      height: 13rem;
+      width: 12.75rem;
+    }
+  }
   h2 {
     font-size: 5rem;
     font-weight: bolder;
     margin: 0;
+    position: absolute;
   }
+}
+@keyframes shadow {
+  from {
+    box-shadow: 0 0 0 0 #cb2918, 0 0 0 0 #56719a;
+  }
+  to {
+    box-shadow: 0.25rem 0.125rem 0 0 #cb2918, -0.25rem -0.125rem 0 0 #56719a;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#button-wrapper {
+  margin-top: 20px;
 }
 
 #session-length {
   width: 250px;
   border: 2px solid white;
-  margin: 40px 20px;
+  margin: 20px;
   h3 {
     margin: 0;
   }

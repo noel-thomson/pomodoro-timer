@@ -7,8 +7,9 @@ export default function Session({ session, countdown }) {
   }
 
   return (
-    <div id="session">
+    <section id="session">
+      <div id="session-circle"></div>
       <h2>{`${session}:${countdown}`}</h2>
-    </div>
+    </section>
   );
 }
