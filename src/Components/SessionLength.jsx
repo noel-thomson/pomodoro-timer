@@ -1,14 +1,17 @@
 import React from "react";
+import SessionTitle from "./SessionTitle";
 
 export default function SessionLength({
   title,
   sessionLength,
   clickDown,
   clickUp,
+  isRecess,
 }) {
   return (
     <section className="component-wrapper" id="session-length">
-      <h3>{title}</h3>
+      {/* <h3>{title}</h3> */}
+      <SessionTitle title={title} isRecess={isRecess} />
       <p className="session-length-minutes">
         {sessionLength} <br />
         minutes

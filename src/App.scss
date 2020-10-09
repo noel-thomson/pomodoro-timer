@@ -1,30 +1,37 @@
 body {
   text-align: center;
-  background-color: #282c34;
+  background-color: #25252b;
 }
 .App {
   .App-wrapper {
     min-height: 100vh;
-    max-width: 100vw;
+    max-width: 100vw; //
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+    position: relative;
     #session-length-container {
       display: flex;
     }
-    @media screen and (max-width: 600px) {
-      #session-length-container {
-        flex-direction: column;
-        #session-length {
-          margin: 10px;
-        }
-      }
+    h1 {
+      text-shadow: -2px 2px 2px #cb2918;
+      margin-top: 0;
     }
     .component-wrapper {
       padding: 20px;
+    }
+    footer {
+      position: fixed;
+      bottom: 0;
+      margin: 0 auto;
+      p {
+        text-align: center;
+        font-size: 12px;
+        margin: 10px;
+      }
     }
   }
 }
@@ -35,6 +42,10 @@ body {
   padding: 7px 10px;
   width: 60px;
   letter-spacing: 0.5px;
+  border-radius: 5px;
+  &:focus {
+    outline: none;
+  }
 }
 
 .pause,
@@ -65,18 +76,6 @@ body {
     // transition: 0.3s transform;
     // }
   }
-  @media screen and (max-width: 525px) {
-    #session-circle {
-      height: 15rem;
-      width: 14.75rem;
-    }
-  }
-  @media screen and (max-width: 400px) {
-    #session-circle {
-      height: 13rem;
-      width: 12.75rem;
-    }
-  }
   h2 {
     font-size: 5rem;
     font-weight: bolder;
@@ -103,15 +102,20 @@ body {
 }
 
 #button-wrapper {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 #session-length {
   width: 250px;
   border: 2px solid white;
   margin: 20px;
+  border-radius: 15px;
   h3 {
     margin: 0;
+  }
+  .session-length-minutes {
+    margin: 15px 0 15px 0;
+    font-size: 1.7rem;
   }
   .session-length-btn-container {
     display: flex;
@@ -124,9 +128,36 @@ body {
       font-weight: bold;
       letter-spacing: 1px;
     }
-    .session-length-minutes {
-      margin: 10px;
-      font-size: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 675px) {
+  #session {
+    h2 {
+      font-size: 4.5rem;
     }
+  }
+  #session-length-container {
+    flex-direction: column;
+    #session-length {
+      margin: 10px;
+    }
+  }
+}
+@media screen and (max-width: 525px) {
+  #session-circle {
+    height: 15rem;
+    width: 14.75rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  #session {
+    h2 {
+      font-size: 4rem;
+    }
+  }
+  #session-circle {
+    height: 13rem;
+    width: 12.75rem;
   }
 }
