@@ -1,6 +1,13 @@
 body {
   text-align: center;
-  background-color: #25252b;
+  background-color: #333;
+  background-color: #485461;
+  background-color: #000000;
+  background: linear-gradient(
+    135deg,
+    rgba(60, 60, 60, 1) 0%,
+    rgba(50, 50, 50, 0.9) 75%
+  );
 }
 .App {
   .App-wrapper {
@@ -18,7 +25,7 @@ body {
       display: flex;
     }
     h1 {
-      text-shadow: -2px 2px 2px #cb2918;
+      text-shadow: -2px 2px 1px #cb2918;
       margin-top: 0;
     }
     .component-wrapper {
@@ -68,6 +75,7 @@ body {
   border-radius: 50%;
   #session-circle {
     // padding: 5px;
+    background: #25252b;
     height: 18rem;
     width: 17.75rem;
     border: 3px solid #fafafa;
@@ -105,6 +113,9 @@ body {
 
 #button-wrapper {
   margin-top: 15px;
+  button {
+    box-shadow: -2px 2px 1px rgba(203, 41, 24, 1);
+  }
 }
 
 #session-length-container {
@@ -116,6 +127,8 @@ body {
     margin: 20px;
     border-radius: 15px;
     background-color: #25252b;
+    box-shadow: -2px 2px 1px rgba(203, 41, 24, 1);
+
     h3 {
       margin: 0;
     }
@@ -133,6 +146,7 @@ body {
         font-size: 0.75rem;
         font-weight: bold;
         letter-spacing: 1px;
+        box-shadow: -2px 2px 1px rgba(203, 41, 24, 1);
       }
     }
   }
