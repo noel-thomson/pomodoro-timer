@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import useSound from "use-sound";
-import SessionLength from "./Components/SessionLength";
-import Session from "./Components/Session";
-import "./App.scss";
-const ding = "https://freesound.org/data/previews/456/456965_6456158-lq.mp3";
+import React, { useState, useEffect } from 'react';
+import useSound from 'use-sound';
+import SessionLength from './Components/SessionLength';
+import Session from './Components/Session';
+import './App.scss';
+const ding =
+  'https://assets.mixkit.co/sfx/preview/mixkit-modern-classic-door-bell-sound-113.mp3';
 
 function App() {
   const [pomodoro, setPomodoro] = useState(25); // adjust
@@ -28,6 +29,7 @@ function App() {
       }, 1000);
       return () => window.clearInterval(id);
     }
+    // eslint-disable-next-line
   }, [on]);
 
   // decrease minutes and switch setting (pomodoro/recess)
@@ -50,39 +52,39 @@ function App() {
 
   // button functionality
   function reduceTime(title) {
-    if (title === "Pomodoro") {
+    if (title === 'Pomodoro') {
       setPomodoro((c) => c - 1);
     }
-    if (title === "Break") {
+    if (title === 'Break') {
       setRecess((c) => c - 1);
     }
   }
   function increaseTime(title) {
-    if (title === "Pomodoro") {
+    if (title === 'Pomodoro') {
       setPomodoro((c) => c + 1);
     }
-    if (title === "Break") {
+    if (title === 'Break') {
       setRecess((c) => c + 1);
     }
   }
 
   return (
-    <div className="App">
-      <div className="App-wrapper">
+    <div className='App'>
+      <div className='App-wrapper'>
         <h1>Pomodoro Timer</h1>
         <Session session={minutes} countdown={seconds} />
-        <section className="component-wrapper" id="button-wrapper">
+        <section className='component-wrapper' id='button-wrapper'>
           {on ? (
-            <button className="btn pause" onClick={() => setOn(false)}>
+            <button className='btn pause' onClick={() => setOn(false)}>
               Pause
             </button>
           ) : (
-            <button className="btn start" onClick={() => setOn(true)}>
+            <button className='btn start' onClick={() => setOn(true)}>
               Start
             </button>
           )}
           <button
-            className="btn reset"
+            className='btn reset'
             onClick={() => {
               setOn(false);
               setSeconds(0);
@@ -92,19 +94,19 @@ function App() {
             Reset
           </button>
         </section>
-        <section id="session-length-container">
+        <section id='session-length-container'>
           <SessionLength
             sessionLength={pomodoro}
             clickDown={reduceTime}
             clickUp={increaseTime}
-            title="Pomodoro"
+            title='Pomodoro'
             isRecess={isRecess}
           />
           <SessionLength
             sessionLength={recess}
             clickDown={reduceTime}
             clickUp={increaseTime}
-            title="Break"
+            title='Break'
             isRecess={isRecess}
           />
         </section>
