@@ -5,6 +5,8 @@ import Session from './Components/Session';
 import './App.scss';
 const ding =
   'https://assets.mixkit.co/sfx/preview/mixkit-modern-classic-door-bell-sound-113.mp3';
+const tone =
+  'https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3';
 
 function App() {
   const [pomodoro, setPomodoro] = useState(25); // adjust
@@ -14,10 +16,12 @@ function App() {
   const [on, setOn] = useState(false);
   const [isRecess, setIsRecess] = useState(false);
   const [play] = useSound(ding);
+  const [begin] = useSound(tone);
 
   // decrease seconds
   useEffect(() => {
     if (on) {
+      begin();
       const id = window.setInterval(() => {
         setSeconds((c) => {
           if (c === 0) {
