@@ -112,7 +112,7 @@ body {
 #button-wrapper {
   margin-top: 15px;
   button {
-    box-shadow: -2px 2px 1px rgba(203, 41, 24, 1);
+    // box-shadow: -2px 2px 1px rgba(203, 41, 24, 1);
   }
 }
 
@@ -121,11 +121,11 @@ body {
   z-index: 2;
   #session-length {
     width: 250px;
-    border: 2px solid white;
+    border: 3px solid white;
     margin: 20px;
     border-radius: 15px;
     background-color: #25252b;
-    box-shadow: -2px 2px 1px rgba(203, 41, 24, 1);
+    // box-shadow: -2px 2px 1px rgba(203, 41, 24, 1);
 
     h3 {
       margin: 0;
@@ -144,7 +144,7 @@ body {
         font-size: 0.75rem;
         font-weight: bold;
         letter-spacing: 1px;
-        box-shadow: -2px 2px 1px rgba(203, 41, 24, 1);
+        // box-shadow: -2px 2px 1px rgba(203, 41, 24, 1);
       }
     }
   }
